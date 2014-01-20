@@ -34,8 +34,8 @@ public class TorchApp extends Application {
 
     public void handleTorchStatusSwitching(boolean value) {
         getConfigValues();
-        Settings.AOKP.putBoolean(getContentResolver(),
-                Settings.AOKP.TORCH_STATE, !value);
+        Settings.REVOLT.putBoolean(getContentResolver(),
+                Settings.REVOLT.TORCH_STATE, !value);
         FileWriter torchWriter = null;
         try {
             torchWriter = new FileWriter(mFlashDevice);
@@ -85,8 +85,8 @@ public class TorchApp extends Application {
                     Camera.Parameters params = mCamera.getParameters();
                     params.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
                     mCamera.setParameters(params);
-                    Settings.AOKP.putBoolean(getContentResolver(),
-                            Settings.AOKP.TORCH_STATE, true);
+                    Settings.REVOLT.putBoolean(getContentResolver(),
+                            Settings.REVOLT.TORCH_STATE, true);
                 } catch (Exception e) {
                     Log.e(TAG, "Failed to turn on Torch", e);
                 }
@@ -101,8 +101,8 @@ public class TorchApp extends Application {
                     params.setFlashMode(Camera.Parameters.FLASH_MODE_AUTO);
                     mCamera.setParameters(params);
                     mCamera.stopPreview();
-                    Settings.AOKP.putBoolean(getContentResolver(),
-                            Settings.AOKP.TORCH_STATE, false);
+                    Settings.REVOLT.putBoolean(getContentResolver(),
+                            Settings.REVOLT.TORCH_STATE, false);
                 } catch (Exception e) {
                     Log.e(TAG, "Failed to turn off Torch", e);
                 }
