@@ -33,7 +33,7 @@ public class TorchActivity extends Activity {
         forceWhiteScreen = getIntent().getBooleanExtra("whitescreen", false);
         mWhiteScreen = (forceWhiteScreen || mHasNoHardwareFlash);
         boolean torchStatus = Settings.REVOLT.getBoolean(getContentResolver(),
-                Settings.REVOLTTORCH_STATE, false);
+                Settings.REVOLT.TORCH_STATE, false);
 
         if (mWhiteScreen) {
             setContentView(R.layout.whitescreen);
